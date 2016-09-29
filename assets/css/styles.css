@@ -1,0 +1,18 @@
+.mainCategory a,
+.mainCategory p {
+    margin: 0;
+    padding: 0;
+}
+
+.mainCategory {
+    margin-bottom: 10px;
+}
+
+.mainCategory:last-child {
+    margin-bottom: 0;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
