@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>Expenses</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+</head>
+
+<body>
+    <form id="form" novalidate>
+        <fieldset>
+            <label for="event_date">Date:</label>
+            <input type="date" name="event_date" id="event_date" required>
+        </fieldset>
+        <fieldset>
+            <label for="amount">Amount:</label>
+            <input type="number" name="amount" id="amount" placeholder="0.00" required>
+        </fieldset>
+        <fieldset>
+            <label for="category">Category:</label>
+            <select onchange="showSubcategory(this)" id="category" name="category" required>
+                <option value="" disabled selected>Category</option>
+                <option value="donations">Donations</option>
+                <option value="housing">Housing</option>
+                <option value="utilities">Utilities</option>
+                <option value="food">Food</option>
+                <option value="auto">Auto</option>
+                <option value="medical">Medical</option>
+                <option value="personal">Personal</option>
+                <option value="entertainment">Entertainment</option>
+                <option value="debts">Debts</option>
+            </select>
+        </fieldset>
+        <!-- Subcategory -->
+        <fieldset id="subcategory">
+            <label for="subcategory">Subcategory:</label>
+            <select name="subcategory">
+                <option value="" disabled selected>Choose Category First</option>
+            </select>
+            <select id="donations" name="subcategory">
+                <option value="church">Church</option>
+                <option value="churchDonuts" selected>Church Donuts</option>
+                <option value="charities">Other Charities</option>
+            </select>
+            <select id="housing" name="subcategory">
+                <option value="mortgateRent">Mortgage / Rent</option>
+                <option value="realEstateTaxes">Real Estate Taxes</option>
+                <option value="homeInsurance">Home Insurance</option>
+                <option value="repairs">Repairs</option>
+                <option value="homeImprovements">Home Improvements</option>
+                <option value="homeOther">Other</option>
+            </select>
+            <select id="utilities" name="subcategory">
+                <option value="electricity">Electricity</option>
+                <option value="water">Water</option>
+                <option value="gas">Gas</option>
+                <option value="phone">Phone</option>
+                <option value="cable">Cable TV</option>
+                <option value="trash">Trash</option>
+            </select>
+            <select id="food" name="subcategory">
+                <option value="grocery">Grocery</option>
+                <option value="restaurants">Restaurants</option>
+            </select>
+            <select id="auto" name="subcategory">
+                <option value="carGas">Car Gas</option>
+                <option value="carInsurance">Car Insurance</option>
+                <option value="oilFilters">Oil &amp; Filters</option>
+                <option value="licenseRegistration">License &amp; Registration</option>
+                <option value="carRepairs">Car Repairs</option>
+                <option value="parking">Parking</option>
+            </select>
+            <select id="medical" name="subcategory">
+                <option value="doctorBills">Doctor Bills</option>
+                <option value="dentist">Dentist</option>
+                <option value="optometrist">Optometrist</option>
+                <option value="prescriptions">Prescriptions</option>
+            </select>
+            <select id="personal" name="subcategory">
+                <option value="generalRetail">General Retail</option>
+                <option value="gifts">Gifts</option>
+                <option value="pocketMoneyTed">Pocket Money Ted</option>
+                <option value="pocketMoneyBecca">Pocket Money Becca</option>
+                <option value="hairCare">Hair Care</option>
+                <option value="tuition">Tuition</option>
+                <option value="schoolFees">School Fees</option>
+                <option value="schoolSupplies">School Supplies</option>
+                <option value="lifeInsurance">Life Insurance</option>
+                <option value="childCare">Child Care</option>
+                <option value="babysitter">Babysitter</option>
+            </select>
+            <select id="entertainment" name="subcategory">
+                <option value="movies">Movies</option>
+                <option value="vacation">Vacation</option>
+            </select>
+            <select id="debts" name="subcategory">
+                <option value="bestBuyCreditCard">Best Buy Credit Card</option>
+                <option value="studentLoanTed">Student Loan Ted</option>
+                <option value="studentLoanBecca">Student Loan Becca</option>
+                <option value="momAndDad">Mom &amp; Dad</option>
+                <option value="debtsOther">Other</option>
+            </select>
+        </fieldset>
+        <fieldset>
+            <label for="payee">Payee:</label>
+            <input id="payee" type="text" name="payee" placeholder="Best Buy" required>
+        </fieldset>
+        <fieldset>
+            <label for="notes">Notes:</label>
+            <textarea id="notes" name="notes"></textarea>
+        </fieldset>
+        <fieldset>
+            <input type="hidden" name="transaction" value="expense">
+            <input type="hidden" name="backend" value="add-expense.php">
+            <div onclick="checkValues()">Add</div>
+        </fieldset>
+        <div id="results"></div>
+    </form>
+</body>
+
+</html>
