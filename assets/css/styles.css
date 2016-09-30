@@ -16,3 +16,61 @@ a {
     text-decoration: none;
     color: black;
 }
+
+/* inputs styles */
+input,
+textarea,
+select {
+    border: 1px solid gray;
+    background-color: white;
+}
+
+input,
+select,
+textarea {
+    padding: 5px;
+    margin: 10px 0;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 200px;
+    display: block;
+}
+
+fieldset {
+    border: none;
+}
+
+select{
+    width: 215px !important;
+}
+
+input[type="date"],
+input[type="time"] {
+    padding: 2px 5px;
+}
+
+textarea {
+    height: 20px;
+}
+
+#subcategory select {
+    display: none;
+}
+
+#subcategory > select:first-of-type {
+    display: block;
+}
+
+#form {
+    text-align: center;
+    font-family: Arial;
+}
+
+#form fieldset {
+    display: inline-block;
+    width: 215px;
+    padding: 5px;
+    margin: 5px;
+    text-align: left;
+    vertical-align: top;
+}
