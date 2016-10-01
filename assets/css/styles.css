@@ -18,6 +18,7 @@ a {
 }
 
 /* inputs styles */
+.initial,
 input,
 textarea,
 select {
@@ -73,6 +74,31 @@ textarea {
     margin: 5px;
     text-align: left;
     vertical-align: top;
+}
+
+.valid {
+    border: 1px solid green;
+}
+
+.invalid {
+    border: 1px solid red;
+}
+
+.focus {
+    border: 1px solid aliceblue;
+}
+
+.error,
+.success {
+    display: none;
+}
+
+.error-bg {
+    background-color: lightpink;
+}
+
+.success-bg {
+    background-color: lightgreen;
 }
 
 .add-button {
