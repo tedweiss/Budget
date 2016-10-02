@@ -1,3 +1,16 @@
+// Shows the corresponding subcategory when the main category is selected
+function showSubcategory(subcat) {
+    subcat = subcat.value;
+    var subcategory = document.getElementById('subcategory');
+    var subSelects = subcategory.getElementsByTagName('select');
+    for (var i = 0; i < subSelects.length; i++) {
+        subSelects[i].style.display = "none";
+        subSelects[i].setAttribute("class", "");
+    }
+    var subcatCurrent = document.getElementById(subcat);
+    subcatCurrent.style.display = "block";
+}
+
 // Event Listeners onblur and onfocus
 var form = document.getElementById("form");
 form.addEventListener("focus", function(event) {
@@ -78,5 +91,5 @@ function checkValues() {
     checkSelects();
 
     // end form validation on click
-    
+
 }
