@@ -9,6 +9,10 @@ function showSubcategory(subcat) {
     }
     var subcatCurrent = document.getElementById(subcat);
     subcatCurrent.style.display = "block";
+    var category = document.getElementById('category');
+    // mark fields as valid when selected
+    category.setAttribute("class", "valid success-bg");
+    subcatCurrent.setAttribute("class", "valid success-bg");
 }
 
 // Event Listeners onblur and onfocus
