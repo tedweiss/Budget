@@ -1,3 +1,5 @@
+var post_data = {};
+
 // Shows the corresponding subcategory when the main category is selected
 function showSubcategory(subcat) {
     subcat = subcat.value;
@@ -96,4 +98,51 @@ function checkValues() {
 
     // end form validation on click
 
+    //everything looks good! proceed...
+    if (proceed) {
+        getValues();
+    }
+}
+
+// Get the values from the form
+function getValues() {
+    var myForm = document.getElementById("form");
+    var inputs = myForm.getElementsByTagName("input");
+    var selects = myForm.getElementsByTagName("select");
+    var textareas = myForm.getElementsByTagName("textarea");
+    var i, inputName, inputValue, selectName, selectValue, textareaName, textareaValue;
+    // Input values
+    for (i = 0; i < inputs.length; i++) {
+        inputName = inputs[i].name;
+        inputValue = inputs[i].value;
+        post_data[inputName] = inputValue;
+    }
+    // Select values
+    for (i = 0; i < selects.length; i++) {
+        // Selects that are not "subcategory"
+        if (selects[i].name !== "subcategory") {
+            selectName = selects[i].name;
+            selectValue = selects[i].value;
+            post_data[selectName] = selectValue;
+        }
+        // Selects that are "subcategory"
+        if (selects[i].name === "subcategory" && selects[i].style.display === "block") {
+            selectName = selects[i].name;
+            selectValue = selects[i].value;
+            post_data[selectName] = selectValue;
+        }
+    }
+    // Textarea values
+    for (i = 0; i < textareas.length; i++) {
+        textareaName = textareas[i].name;
+        textareaValue = textareas[i].value;
+        post_data[textareaName] = textareaValue;
+    }
+    consoleLog();
+}
+
+// Show data to be sent to backend
+function consoleLog() {
+    var str = JSON.stringify(post_data);
+    console.dir("JSON: " + str);
 }
