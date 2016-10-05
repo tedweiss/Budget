@@ -138,7 +138,68 @@ function getValues() {
         textareaValue = textareas[i].value;
         post_data[textareaName] = textareaValue;
     }
+    if (eventDate) {
+        convertDate();
+    }
     consoleLog();
+}
+
+// Convert date to just year and just month to be sent to backend
+var eventDate = document.getElementById("event_date");
+var dateArray = [];
+var year, yearString, month, monthString;
+
+function convertDate() {
+    // convert date to year
+    dateArray = eventDate.value.split("");
+    year = dateArray.slice(0, 4);
+    yearString = year.toString().replace(/,/g, "");
+    post_data.year = yearString;
+
+    // convert date to month
+    dateArray = eventDate.value.split("");
+    month = dateArray.slice(5, 7);
+    monthString = month.toString().replace(/,/g, "");
+    // switch month number to month name
+    switch (monthString) {
+        case "01":
+            monthString = "January";
+            break;
+        case "02":
+            monthString = "February";
+            break;
+        case "03":
+            monthString = "March";
+            break;
+        case "04":
+            monthString = "April";
+            break;
+        case "05":
+            monthString = "May";
+            break;
+        case "06":
+            monthString = "June";
+            break;
+        case "07":
+            monthString = "July";
+            break;
+        case "08":
+            monthString = "August";
+            break;
+        case "09":
+            monthString = "September";
+            break;
+        case "10":
+            monthString = "October";
+            break;
+        case "11":
+            monthString = "November";
+            break;
+        case "12":
+            monthString = "December";
+            break;
+    }
+    post_data.month = monthString;
 }
 
 // Show data to be sent to backend
